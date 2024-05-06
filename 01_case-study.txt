@@ -19,4 +19,23 @@ For this activity, simply choose one question you wish to answer.
     5. Reflecting on your experience, what lessons have you learned, and what actionable steps can you take to prevent similar issues in the future?
 
 
+3.  In what ways can you enhance your software architecture and design to minimize dependencies
+    on external components and facilitate easier migration when necessary?
 
+
+    As a Tech Lead,
+
+    I should clearly define and have a deep understanding on the specific requirements of our project that majorly concerns
+    the software architecture adaptability, and then there have a sense of pre-cognition or have provisions on what this project
+    could look like when disruptive changes would arise.
+    
+    Mapping out our functional and nonfunctional requirements is one way to help me see the architecture and the design
+    of our project as this would help me narrow down the technology that we may use for the project.
+
+    Then, I would start drafting out the software architecture with the System Analysts and try to divide it into two kinds of slices,
+    If I would horizontally slice the architecture, I would be able to see the components/layers and I could identify which would be reluctant
+    and take note of this. If I would vertically slice it, I would be able to see the project's parts where I could have high product delivery
+    based on rich features. 
+    
+    Last but not the least, a good organized knowledge base of the architecture and well-documented revision history of the design would be a helpful
+    decision variable on what techonology we might use to migrate into when necessary.
