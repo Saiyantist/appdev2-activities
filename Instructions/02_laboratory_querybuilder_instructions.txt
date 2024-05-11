@@ -1,0 +1,180 @@
+﻿May 11 - Laboratory #2: Converting SQL Syntax to Laravel 10 Query Builder
+
+
+Instructions:
+Transform the given SQL syntax into Laravel 10 Query Builder format. Once you've verified that the query builder functions properly within your Laravel project, create a new file named 02_laboratory_querybuilder.php and insert the converted syntax. Finally, upload your completed task to GitHub under the repository appdev2-activities.
+
+
+Your 02_laboratory_querybuilder.php file should follow this content format.
+# Task#1
+# SQL Syntax
+Your query builder syntax
+
+
+# Task#2
+# SQL Syntax
+Your query builder syntax
+
+
+….
+
+
+Here is the database schema that you can use in this laboratory activity. 
+-- Create database
+CREATE DATABASE school_database;
+
+
+-- Use database
+USE school_database;
+
+
+-- Create tables for students, teachers, subjects, and scores
+
+
+-- Students table
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    grade VARCHAR(10) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    teacher_id INT,
+    subject_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id)
+);
+
+
+-- Teachers table
+CREATE TABLE teachers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+-- Subjects table
+CREATE TABLE subjects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+-- Scores table
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    score DECIMAL(5, 2) NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+
+-- Insert sample data into teachers table
+INSERT INTO teachers (name) VALUES 
+('Mr. Santos'), 
+('Ms. Cruz'),
+('Mr. Reyes'),
+('Mrs. Garcia'),
+('Ms. Torres');
+
+
+-- Insert sample data into subjects table
+INSERT INTO subjects (name) VALUES 
+('Math'), 
+('Science'),
+('English'),
+('History'),
+('Art');
+
+
+-- Insert sample data into students table
+INSERT INTO students (name, age, grade, city, teacher_id, subject_id) VALUES
+('Juan dela Cruz', 15, '10', 'Manila', 1, 1),
+('Maria Santos', 16, '11', 'Quezon City', 2, 2),
+('Pedro Reyes', 14, '9', 'Cebu City', 3, 3),
+('Ana Garcia', 17, '12', 'Davao City', 4, 4),
+('Luisa Torres', 15, '10', 'Cagayan de Oro', 5, 5),
+('Miguel Cruz', 16, '11', 'Bacolod City', 1, 1),
+('Sofia Garcia', 14, '9', 'Zamboanga City', 2, 2),
+('Diego Santos', 17, '12', 'Iloilo City', 3, 3),
+('Camila Reyes', 15, '10', 'Baguio City', 4, 4),
+('Gabriel Torres', 16, '11', 'Cebu City', 5, 5);
+
+
+-- Insert sample data into scores table (optional)
+INSERT INTO scores (student_id, score) VALUES 
+(1, 85), 
+(2, 92),
+(3, 78),
+(4, 90),
+(5, 88),
+(6, 85),
+(7, 95),
+(8, 82),
+(9, 89),
+(10, 91);
+	
+
+Tasks
+1. Retrieve all students.
+# SQL Syntax
+SELECT * FROM students;
+	
+
+2. Retrieve students in a specific grade.
+# SQL Syntax
+SELECT * FROM students WHERE grade = '10';
+	
+
+3. Retrieve students with a specific age range.
+# SQL Syntax
+SELECT * FROM students WHERE age BETWEEN 15 AND 18;
+	
+
+4. Retrieve students from a specific city.
+# SQL Syntax
+SELECT * FROM students WHERE city = 'Manila';
+	
+
+5. Retrieve students sorted by their age in descending order.
+# SQL Syntax
+SELECT * FROM students ORDER BY age DESC;
+	
+
+6. Retrieve students with their corresponding teacher.
+# SQL Syntax
+SELECT students.*, teachers.name AS teacher_name 
+FROM students 
+LEFT JOIN teachers ON students.teacher_id = teachers.id;
+	
+
+7. Retrieve teachers along with the number of students they teach.
+# SQL Syntax
+SELECT teachers.*, COUNT(students.id) AS student_count 
+FROM teachers 
+LEFT JOIN students ON teachers.id = students.teacher_id 
+GROUP BY teachers.id;
+	
+
+8. Retrieve students with their corresponding subjects.
+# SQL Syntax
+SELECT students.*, subjects.name AS subject_name 
+FROM students 
+INNER JOIN subjects ON students.subject_id = subjects.id;
+	
+
+9. Retrieve students along with their average scores.
+# SQL Syntax
+SELECT students.*, AVG(scores.score) AS average_score 
+FROM students 
+LEFT JOIN scores ON students.id = scores.student_id 
+GROUP BY students.id;
+	
+
+10. Retrieve top 5 teachers with the highest number of students.
+# SQL Syntax
+SELECT teachers.*, COUNT(students.id) AS student_count 
+FROM teachers 
+LEFT JOIN students ON teachers.id = students.teacher_id 
+GROUP BY teachers.id 
+ORDER BY student_count DESC 
+LIMIT 5;
