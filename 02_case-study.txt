@@ -10,3 +10,46 @@ to prevent the delays and issues experienced, such as incomplete tasks, unresolv
 For this activity, evaluate the situation and offer your suggestions on areas where improvements could have been made
 
 
+Given the circumstances of falling behind schedule, based on my evaluation as a Software Engineer:
+
+    Although the project management methodology we used and as to how it was handled was not mentioned,
+    I want to highlight these areas: 
+
+        1. Timeline (Managerial)
+            - Was the capacity of our development team properly assessed?
+            - Was there any Risk Assessment done before the project started?
+            - Was complacency an unseen issue because the project was "meticulously" planned?
+
+        2. The Delegation of the tasks and its details (Development Team)
+            - "What was expected" vs. "What was understood"
+            - Were the buffers included in each story estimation too short or too long?
+            - Was the development team properly self-managing their tasks well?
+
+        3. Bug fixing
+            - Were the issues/bugs filed properly evaluated according to priority and severity?
+
+    The suggestions that I can offer for these areas are:
+
+    - Knowing the team, and gauging their capacities from time to time to make the performance constraint
+      a bit more clear for the project.
+
+    - Proactively applying Risk Management to the project will significantly
+      reduce the impact to its timeline and budget, falling behind and having to pay for overtime.
+
+    - Good communication with the client, the business analyst or product manager/owner, and the development team
+      helps in clarifying doubts and uncertainties regarding the client's technical requirements. This
+      directly affects positively the project's constraints:
+
+        the performance constraint, better product quality due to clear reqts;
+        the time constraint, reduces the time spent on research and analysis of an unclear requirement;
+        the cost constraint, minimized work pay;
+
+      it will also minimize errors in development and remediation, and reduce the time consumption
+      during the testing process (QAT).
+
+    Additionally, if there's someone in the project team that excels in self-management of their tasks,
+    they could be coordinated to pass on tips, advices, and advanced techniques they know to their teammates. And if
+    there are opportunities for up-skilling the project team members, the manager could consider about it.
+
+    These suggestions may help us in our upcoming projects in preventing this type of circumstance of falling
+    behind schedule in the development and testing phases.
